@@ -380,6 +380,8 @@
       /* Style the buttons inside the tab */
 
       table {
+        background-color: #009879;
+        width: 200px;
         font-family: "Arial";
         margin: 25px auto;
         border-collapse: collapse;
@@ -403,7 +405,7 @@
         td {
           color: #999;
           border: 1px solid #eee;
-          padding: 12px 35px;
+          padding: 5px;
           border-collapse: collapse;
         }
 
@@ -727,9 +729,34 @@
         border: 1px solid grey;
         border-radius: 5px;
       }
+      #searchConfluencePluginId {
+        padding: 5px;
+        border: 1px solid grey;
+        border-radius: 5px;
+      }
       #confluenceDetailsSection {
         /* display: flex !important; */
       }
+      .testP{
+          max-width: 3% !important;
+        }
+      @media only screen and (min-width: 1200px) {
+        #jiraAppDetailSection {
+          width: 100%;
+          overflow: unset;
+          background-color: red;
+        }
+      }
+      @media only screen and (min-width: 1200px) and (max-width: 1400px) {
+        #jiraAppDetailSection {
+          width: 100%;
+          overflow: auto;
+          background-color: purple;
+        }
+     
+      }
+
+      
     </style>
   </head>
 
@@ -782,24 +809,26 @@
               placeholder="Search"
             />
           </div>
-          <table width="100%" id="devPluginDetails">
-            <tr>
-              <th colspan="3">Plugin Details</th>
-              <th colspan="6">Installed Version</th>
-            </tr>
-            <tr id="rowFreezer">
-              <th colspan="1">Plugin Name</th>
-              <th colspan="1">Vendor</th>
-              <th colspan="1">Available Version</th>
-              <th colspan="1">Dev</th>
-              <th colspan="1">UAT</th>
-              <th colspan="1">QA</th>
-              <th colspan="1">SandBox</th>
-              <th colspan="1">PROD</th>
-              <th colspan="1">Stage</th>
-            </tr>
-            <tbody id="devPluginDetailsData"></tbody>
-          </table>
+          <div style="border: 1px solid red; width: 400px !important;">
+            <table id="devPluginDetails" style="overflow: hidden !important; width: 100% !important;">
+              <thead> <tr>
+               <th colspan="3">Plugin Details</th>
+               <th colspan="6">Installed Version</th>
+             </tr>
+             <tr id="rowFreezer">
+               <th colspan="1">Plugin Name</th>
+               <th colspan="1">Vendor</th>
+               <th colspan="1">Available Version</th>
+               <th colspan="1">Dev</th>
+               <th colspan="1">UAT</th>
+               <th colspan="1">QA</th>
+               <th colspan="1">SandBox</th>
+               <th colspan="1">PROD</th>
+               <th colspan="1">Stage</th>
+             </tr></thead>
+               <tbody id="devPluginDetailsData"></tbody>
+             </table>
+          </div>
         </div>
       </section>
       <section id="confluenceDetailsSection" class="tab-panel"></section>
@@ -815,7 +844,7 @@
               placeholder="Search"
             />
           </div>
-          <table width="100%" id="devConfluenceDetails">
+          <table id="devConfluenceDetails">
             <tr>
               <th colspan="3">Plugin Details</th>
               <th colspan="6">Installed Version</th>
@@ -1979,7 +2008,7 @@
                 <td>${ele.prodVersion}</td>
                 </tr>`;
         return (
-        //   devBadgeEle.length < pluginsData.length &&
+          //   devBadgeEle.length < pluginsData.length &&
           insertEle.appendChild(devBadge)
         );
       });
@@ -2030,7 +2059,7 @@
                 <td>${ele.stageVersion}</td>
                 </tr>`;
         return (
-        //   devBadgeEle.length < pluginsData.length &&
+          //   devBadgeEle.length < pluginsData.length &&
           insertEle.appendChild(devBadge)
         );
       });
