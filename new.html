@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Grid Modal Example</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+
+      .open-button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+        margin: 20px;
+      }
+
+      .open-button:hover {
+        background-color: #0056b3;
+      }
+
+      /* The Modal (background) */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+        padding-top: 60px;
+      }
+
+      /* Modal Content */
+      .modal-content {
+        background-color: white;
+        margin: 5% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 600px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Modal Header */
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #e5e5e5;
+        padding-bottom: 10px;
+      }
+
+      .modal-header h2 {
+        margin: 0;
+        font-size: 24px;
+      }
+
+      /* Modal Body */
+      .modal-body {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 10px;
+        padding: 20px 0;
+      }
+
+      .box {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 14px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+      }
+      .box:hover {
+        transform: translateY(-2px) scale(1.05);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Modal Footer */
+      .modal-footer {
+        padding-top: 10px;
+        display: flex;
+        justify-content: flex-end;
+        border-top: 1px solid #e5e5e5;
+      }
+
+      /* Close Button */
+      .close-button {
+        cursor: pointer;
+        border: none;
+        padding: 8px 18px;
+        font-size: 14px;
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+      }
+
+      .close-button:hover {
+        background-color: #0056b3;
+      }
+
+      @media (max-width: 600px) {
+        .modal-content {
+          width: 90%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Modal Button -->
+    <button id="openModalBtn">Open Modal</button>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Open a Request</h2>
+          <span class="close"></span>
+        </div>
+        <div class="modal-body">
+          <div class="box" onclick="navigate('')">
+            Are you looking for Standard Application access, Software/ Hardware?
+          </div>
+          <div class="box" onclick="navigate('')">
+            Are you looking Advanced access or workflow? open a request with
+            IT-Operations team.
+          </div>
+          <div class="box" onclick="navigate('')">
+            If you are unable to find what you are looking for open a Generic
+            service request.
+          </div>
+          <div class="box" onclick="navigate('')">
+            Open an IT project request
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="close-button">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Get the modal
+      var modal = document.getElementById("myModal");
+
+      // Get the button that opens the modal
+      var btn = document.getElementById("openModalBtn");
+
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+
+      // Get the close button in the footer
+      var footerCloseBtn = document.getElementsByClassName("close-button")[0];
+
+      // When the user clicks on the button, open the modal
+      btn.onclick = function () {
+        modal.style.display = "block";
+      };
+
+      footerCloseBtn.onclick = function () {
+        modal.style.display = "none";
+      };
+      function navigate(url) {
+        window.open(url, "_blank");
+      }
+    </script>
+  </body>
+</html>

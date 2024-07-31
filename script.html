@@ -1,0 +1,37 @@
+<html>
+  <script>
+    //      data-bs-toggle="modal"
+    //   data-bs-target="#staticBackdrop"
+    //   data-aos="fade-up"
+    setTimeout(function () {
+      const text = "Open A Request";
+      let found = false;
+
+      for (const div of document.querySelectorAll(
+        "div.rw_request_type_card_container"
+      )) {
+        if (div.textContent.includes(text)) {
+          // // div.setAttribute('onclick', "location.href='https://jiraet-stage.cotiviti.com';");
+          // div.setAttribute('data-bs-toggle',"modal")
+          // div.setAttribute('data-bs-target',"#staticBackdrop")
+          div.setAttribute("id", "openModalBtn");
+          found = true;
+          break;
+        }
+      }
+
+      if (!found) {
+        for (const div of document.querySelectorAll(".rw_request_type_card")) {
+          if (div.textContent.includes(text)) {
+            div.setAttribute(
+              "onclick",
+              "location.href='https://jiraet-qa.cotiviti.com/plugins/servlet/desk/portal/25';"
+            );
+
+            break;
+          }
+        }
+      }
+    }, 1000);
+  </script>
+</html>
