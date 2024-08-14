@@ -103,7 +103,7 @@
       }
 
       /* Close Button */
-      .close-button {
+      .close-button1 {
         cursor: pointer;
         border: none;
         padding: 8px 18px;
@@ -113,7 +113,21 @@
         border-radius: 5px;
       }
 
-      .close-button:hover {
+      .close-button1:hover {
+        background-color: #0056b3;
+      }
+      /* Close Button */
+      .close-button2 {
+        cursor: pointer;
+        border: none;
+        padding: 8px 18px;
+        font-size: 14px;
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+      }
+
+      .close-button2:hover {
         background-color: #0056b3;
       }
 
@@ -126,10 +140,10 @@
   </head>
   <body>
     <!-- Modal Button -->
-    <button id="openModalBtn">Open Modal</button>
+    <button id="openModalBtn1">Open Modal</button>
 
-    <!-- Modal -->
-    <div id="myModal" class="modal">
+    <!-- Modal 1 -->
+    <div id="myModal1" class="modal">
       <!-- Modal content -->
       <div class="modal-content">
         <div class="modal-header">
@@ -137,7 +151,7 @@
           <span class="close"></span>
         </div>
         <div class="modal-body">
-          <div class="box" onclick="navigate('')">
+          <div class="box" id="secondModal">
             Are you looking for Standard Application access, Software/ Hardware?
           </div>
           <div class="box" onclick="navigate('')">
@@ -153,32 +167,69 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button class="close-button">Close</button>
+          <button class="close-button1">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div id="myModal2" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Open a Request</h2>
+          <span class="close"></span>
+        </div>
+        <div class="modal-body">
+          <div class="box"  onclick="navigate('')" >
+            1
+          </div>
+          <div class="box" onclick="navigate('')">
+            2
+          </div>
+          <div class="box" onclick="navigate('')">
+          3
+          </div>
+          <div class="box" onclick="navigate('')">
+            4
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="close-button2">Close</button>
         </div>
       </div>
     </div>
 
     <script>
       // Get the modal
-      var modal = document.getElementById("myModal");
-
+      var modal1 = document.getElementById("myModal1");
       // Get the button that opens the modal
-      var btn = document.getElementById("openModalBtn");
-
-      // Get the <span> element that closes the modal
-      var span = document.getElementsByClassName("close")[0];
-
+      var btn = document.getElementById("openModalBtn1");
       // Get the close button in the footer
-      var footerCloseBtn = document.getElementsByClassName("close-button")[0];
-
+      var footerCloseBtn = document.getElementsByClassName("close-button1")[0];
       // When the user clicks on the button, open the modal
       btn.onclick = function () {
-        modal.style.display = "block";
+        modal1.style.display = "block";
+      };
+      footerCloseBtn.onclick = function () {
+        modal1.style.display = "none";
       };
 
-      footerCloseBtn.onclick = function () {
-        modal.style.display = "none";
+      //second modal
+      var modal2=document.getElementById('myModal2')
+      var btn2 = document.getElementById("secondModal");
+      //var btn2 = document.getElementById("openModalBtn2");
+      var footerCloseBtn2 = document.getElementsByClassName("close-button2")[0];
+      btn2.onclick = function () {
+        modal2.style.display = "block";
+        modal1.style.display = "none";
       };
+      footerCloseBtn2.onclick = function () {
+        modal2.style.display = "none";
+        modal1.style.display = "block";
+      };
+
+
       function navigate(url) {
         window.open(url, "_blank");
       }
